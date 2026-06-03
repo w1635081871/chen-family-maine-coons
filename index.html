@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chen Family Maine Coons — Champion Bloodline</title>
+<style>
+:root {
+  --gold: #c8a45c;
+  --gold-light: #e0c78a;
+  --dark: #1a1a1a;
+  --darker: #0d0d0d;
+  --cream: #f5f0e8;
+  --white: #fff;
+  --gray: #8a8a8a;
+  --transition: 0.4s cubic-bezier(0.25,0.1,0.25,1);
+  --font-display: 'Georgia','Times New Roman',serif;
+  --font-body: -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--darker);color:var(--cream);line-height:1.8}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(ellipse at center,#1a1a1a 0%,#000 70%);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('stud.jpg') center 30%/cover no-repeat;opacity:.35;animation:heroZoom 8s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.03)}}
+.hero-content{position:relative;z-index:2;text-align:center;padding:40px 24px;max-width:800px}
+.hero-line{width:60px;height:2px;background:var(--gold);margin:0 auto 32px;animation:lineGrow 1s ease-out}
+@keyframes lineGrow{from{width:0}to{width:60px}}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,4.5rem);font-weight:400;color:var(--white);letter-spacing:.05em;margin-bottom:16px;animation:fadeUp 1s ease-out .2s both}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero .subtitle{font-family:var(--font-display);font-size:1.2rem;color:var(--gold-light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:40px;animation:fadeUp 1s ease-out .4s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-cta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s ease-out .6s both}
+.btn{padding:14px 36px;font-family:var(--font-body);font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:var(--transition);text-decoration:none;display:inline-block}
+.btn-gold{background:var(--gold);color:var(--darker)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,164,92,.3)}
+.btn-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
+.btn-outline:hover{background:var(--gold);color:var(--darker)}
+
+/* Sections */
+.section{padding:100px 24px;max-width:1200px;margin:0 auto}
+.section-label{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:16px;font-weight:400}
+.section-subtitle{color:var(--gray);max-width:600px;margin-bottom:48px}
+
+/* Gallery */
+.gallery{background:var(--dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gallery-grid .item{aspect-ratio:1;overflow:hidden;cursor:pointer;position:relative}
+.gallery-grid .item img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .6s;filter:brightness(.85)}
+.gallery-grid .item:hover img{transform:scale(1.08);filter:brightness(1.05)}
+.gallery-grid .item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.cat-label{position:absolute;bottom:12px;left:12px;background:var(--gold);color:#000;padding:4px 16px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+
+/* Family cats */
+.family-cats{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px}
+.family-cat{overflow:hidden;border:1px solid #333;transition:var(--transition)}
+.family-cat:hover{border-color:var(--gold)}
+.family-cat img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.family-cat-info{padding:24px;background:var(--dark)}
+.family-cat-info h3{font-family:var(--font-display);color:var(--white);font-size:1.3rem;margin-bottom:4px}
+.family-cat-info .role{color:var(--gold);font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.family-cat-info p{color:var(--gray);font-size:.9rem}
+
+/* Info */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;margin-top:48px}
+.info-card{padding:36px 28px;background:var(--dark);border:1px solid #2a2a2a;transition:var(--transition)}
+.info-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.info-card .icon{font-size:2rem;margin-bottom:16px;color:var(--gold)}
+.info-card h3{font-family:var(--font-display);color:var(--white);font-size:1.2rem;margin-bottom:8px;font-weight:400}
+.info-card p{color:var(--gray);font-size:.95rem}
+
+/* Breed */
+.about-breed{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-image{position:relative}
+.about-image img{width:100%;border:1px solid #333}
+.about-image::after{content:'';position:absolute;top:16px;left:16px;width:100%;height:100%;border:1px solid var(--gold);z-index:-1}
+.about-text .trait{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #222;align-items:center}
+.trait .value{margin-left:auto;color:var(--gold);font-family:var(--font-display)}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:24px;width:44px;height:44px;background:none;border:1px solid var(--gray);color:var(--white);font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-close:hover{border-color:var(--gold);color:var(--gold)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:var(--white);font-size:2rem;cursor:pointer;padding:12px 16px}
+.lb-prev{left:24px}.lb-next{right:24px}
+.lb-prev:hover,.lb-next:hover{background:var(--gold);color:#000}
+
+/* Contact */
+.contact{background:linear-gradient(to bottom,var(--darker),var(--dark));text-align:center}
+.contact-box{max-width:560px;margin:0 auto;padding:48px;background:var(--dark);border:1px solid #2a2a2a}
+.contact-box h3{font-family:var(--font-display);color:var(--white);font-size:1.5rem;margin-bottom:8px;font-weight:400}
+.contact-detail{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 0;color:var(--gray);font-size:1.05rem}
+.contact-detail .dot{width:6px;height:6px;background:var(--gold);border-radius:50%}
+
+.footer{text-align:center;padding:32px 24px;border-top:1px solid #222;color:var(--gray);font-size:.85rem}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid .item:first-child{grid-column:span 2}
+  .about-breed{grid-template-columns:1fr}
+  .family-cats{grid-template-columns:1fr}
+  .hero-cta{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-line"></div>
+    <h1>Chen Family <span>Maine Coons</span></h1>
+    <p class="subtitle">Family Raised · Gentle Giants</p>
+    <div class="hero-cta">
+      <a href="#family" class="btn btn-gold">Our Cats</a>
+      <a href="#contact" class="btn btn-outline">Reserve a Kitten</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="family">
+  <span class="section-label">Our Family</span>
+  <h2 class="section-title">The Cats of Chen Family</h2>
+  <p class="section-subtitle">Every cat in our cattery is a cherished family member, raised with love and premium care.</p>
+  <div class="family-cats">
+    <div class="family-cat">
+      <img src="stud.jpg" alt="Stud Male" style="object-position:center 25%">
+      <div class="family-cat-info">
+        <div class="role">Stud — Male</div>
+        <h3>Orange King</h3>
+        <p>Our foundation stud. Strong build, gentle temperament. Proven sire with excellent health screening results.</p>
+      </div>
+    </div>
+    <div class="family-cat">
+      <img src="queen.jpg" alt="Queen Female">
+      <div class="family-cat-info">
+        <div class="role">Queen — Female</div>
+        <h3>Silver Lady</h3>
+        <p>Our beloved queen. Affectionate and calm. Produces kittens with outstanding coat quality and sweet personalities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery" id="gallery">
+  <span class="section-label">Gallery</span>
+  <h2 class="section-title">The Maine Coon Breed</h2>
+  <p class="section-subtitle">Representative Maine Coons from the breed standard. Our cats share these magnificent traits.</p>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<section class="section">
+  <span class="section-label">Why Choose Us</span>
+  <h2 class="section-title">What Makes Us Different</h2>
+  <div class="info-grid">
+    <div class="info-card reveal"><div class="icon">🧬</div><h3>TICA Registered</h3><p>All our cats come with official pedigree certificates tracing champion bloodlines.</p></div>
+    <div class="info-card reveal"><div class="icon">🏥</div><h3>Health Guaranteed</h3><p>Full veterinary screening, genetic testing for HCM/SMA/PKdef, vaccinated before delivery.</p></div>
+    <div class="info-card reveal"><div class="icon">✈️</div><h3>International Shipping</h3><p>Experienced pet transport partners for USA, Europe, and Asia delivery.</p></div>
+    <div class="info-card reveal"><div class="icon">🏠</div><h3>Home Raised</h3><p>Kittens grow up in our home with daily interaction—never caged.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="about-breed">
+    <div class="about-image reveal"><img id="aboutImg" src="queen.jpg" alt="Maine Coon"></div>
+    <div class="about-text reveal">
+      <span class="section-label">The Breed</span>
+      <h2 class="section-title">Maine Coon — The Gentle Giant</h2>
+      <p class="section-subtitle">One of the oldest natural breeds in North America, known for intelligence, loyalty, and impressive size.</p>
+      <div class="trait"><span>Weight (Male)</span><span class="value">6–11 kg</span></div>
+      <div class="trait"><span>Weight (Female)</span><span class="value">4–7 kg</span></div>
+      <div class="trait"><span>Lifespan</span><span class="value">12–15 years</span></div>
+      <div class="trait"><span>Coat</span><span class="value">Long, silky, water-resistant</span></div>
+      <div class="trait"><span>Personality</span><span class="value">Gentle, social, dog-like</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <span class="section-label">Get In Touch</span>
+  <h2 class="section-title">Reserve a Kitten</h2>
+  <p class="section-subtitle" style="margin:0 auto 40px">Serious inquiries only. Kittens available to approved homes.</p>
+  <div class="contact-box">
+    <h3>Chen Family Maine Coons</h3>
+    <div class="contact-detail"><span class="dot"></span><span>WeChat: Xcz19121529035</span></div>
+    <div class="contact-detail"><span class="dot"></span><span>WhatsApp: +86 1815197270</span></div>
+    <div class="contact-detail"><span class="dot"></span><span>Email: w1635081871@gmail.com</span></div>
+    <a href="#" class="btn btn-gold" style="margin-top:20px" onclick="alert('Please email w1635081871@gmail.com with:\n\n1. Your location\n2. Your experience with cats\n3. Preferred color/gender\n\nWe will respond within 48 hours.')">Inquire Now</a>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-prev" onclick="prevLB()">‹</button>
+  <button class="lb-next" onclick="nextLB()">›</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<footer class="footer">&copy; 2026 Chen Family Maine Coons. All rights reserved.</footer>
+
+<script>
+var lbImages = [], lbIdx = 0;
+
+fetch('https://api.thecatapi.com/v1/images/search?breed_ids=mcoo&limit=10')
+  .then(r => r.json())
+  .then(data => {
+    var g = document.getElementById('galleryGrid');
+    g.innerHTML = data.map(function(d, i) {
+      return '<div class="item" onclick="openLB(' + i + ')"><img src="' + d.url + '" alt="Maine Coon" loading="lazy"></div>';
+    }).join('');
+    lbImages = data.map(function(d) { return d.url; });
+    if (data.length > 2) document.getElementById('aboutImg').src = data[2].url;
+  });
+
+function openLB(i) {
+  lbIdx = i;
+  document.getElementById('lbImg').src = lbImages[i];
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.lb-prev').style.display = lbImages.length > 1 ? '' : 'none';
+  document.querySelector('.lb-next').style.display = lbImages.length > 1 ? '' : 'none';
+}
+function closeLB() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+function nextLB() { lbIdx = (lbIdx + 1) % lbImages.length; document.getElementById('lbImg').src = lbImages[lbIdx]; }
+function prevLB() { lbIdx = (lbIdx - 1 + lbImages.length) % lbImages.length; document.getElementById('lbImg').src = lbImages[lbIdx]; }
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowRight') nextLB();
+  if (e.key === 'ArrowLeft') prevLB();
+});
+
+var obs = new IntersectionObserver(function(es) {
+  es.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+</script>
+</body>
+</html>
